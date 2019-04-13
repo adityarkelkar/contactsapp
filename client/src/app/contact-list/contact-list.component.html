@@ -1,0 +1,35 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="header-bar">
+  <h1>Contacts Book</h1>
+  <div class="add-button" title="Add Contact" id="add-button">
+    <img (click)="addContactPopup()" src="../assets/images/add.png" width="20" height="20" alt="Add Contact"
+      title="Add Contact" />
+  </div>
+  <p><input (keyup)="searchContact($event)" type="text" class="search-bar" autocomplete="off" size="100" id="search-bar"
+      name="search" placeholder="Search Contact" /></p>
+</div>
+<div id="container" class="container">
+  <!-- *ngFor="let contact of contacts" -->
+  <div class="card" *ngFor="let contact of contacts">
+    <h3 class="contact-name-head">{{ contact.name }}</h3>
+    <span class="editSpan">
+      <img (click)="editContactPopup($event)" id="{{ contact._id }}" width="20" height="20"
+        src="./../../assets/images/edit.png" alt="Edit Contact" title="Edit Contact" />
+    </span>
+    <span (click)="deleteContact($event)" class="deleteSpan">
+      <img id="{{ contact._id }}" width="20" height="20" src="./../../assets/images/delete.png" alt="Delete Contact"
+        title="Delete Contact" />
+    </span>
+    <p>{{ contact.email }}</p>
+    <p>{{ contact.phoneNumber }}</p>
+  </div>
+  <div *ngIf="showDeleteDialog" id="modalMain" class="modal">
+    <app-contact-delete (deleteEvent)="closePopup($event)" [deleteID]="deleteID"></app-contact-delete>
+  </div>
+  <div *ngIf="showAddDialog" id="modalMain" class="modal">
+    <app-contact-add (closeEvent)="addContactPopup($event)"></app-contact-add>
+  </div>
+  <div *ngIf="showUpdateDialog" id="modalMain" class="modal">
+    <app-contact-update (closeEvent)="closeEditPopup($event)" [contactInfo]="contactInfo"></app-contact-update>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="modal-content">
+  <span (click)="closeUpdateForm()" class="close">&times;</span>
+  <h2 class="modal-header" id="modal-header">Edit Contact</h2>
+  <form #updateContactsForm="ngForm" (ngSubmit)="onSubmit(updateContactsForm)" class="AddContactForm" id="AddContactForm" name="AddContactForm">
+      <div><input [(ngModel)]="fname" type="text" id="contact_fname" name="contact_fname" required="true" placeholder="First Name" />
+      <input [(ngModel)]="lname" type="text" id="contact_lname" name="contact_lname" required="true" placeholder="Last Name" /></div>
+      <div><input [(ngModel)]="phoneNumber" type="number"  id="contact_phone" name="contact_phone" placeholder="Phone Number" /></div>
+      <div><input [(ngModel)]="email" type="email" id="contact_email" name="contact_email" placeholder="Email ID"></div>
+      <div><input [(ngModel)]="contactId" type="hidden" id="contactId" name="contact_id" /></div>
+      <div><input type="submit" id="contact_update" value="Update Contact" name="contact_update" /></div>
+  </form>
+</div>

@@ -1,0 +1,20 @@
+<div class="modal-content">
+  <span (click)="closeAddForm()" class="close">&times;</span>
+  <h2 class="modal-header" id="modal-header">Add Contact</h2>
+  <form ngNativeValidate #contactsForm="ngForm" (ngSubmit)="onSubmit(contactsForm)" class="AddContactForm" id="AddContactForm"
+    name="AddContactForm">
+    <div><input [(ngModel)]="contact_fname" type="text" id="contact_fname" name="contact_fname" required ng-required="true"
+        placeholder="First Name" />
+      <input [(ngModel)]="contact_lname" type="text" id="contact_lname" name="contact_lname" required ng-required="true"
+        placeholder="Last Name" /></div>
+    <div><input [(ngModel)]="contact_phone" type="number" id="contact_phone" name="contact_phone" required ng-required="true"
+        placeholder="Phone Number" /></div>
+    <div><input [(ngModel)]="contact_email" type="email" id="contact_email" name="contact_email" required ng-required="true"
+        placeholder="Email ID">
+    </div>
+    <div><input value="{{ addFormType }}" attr.data-type="{{ addFormType }}" attr.value="{{ addFormType }}"
+        type="hidden" id="form_type" name="form_type" /></div>
+    <div><input [(ngModel)]="contact_contactId" type="hidden" id="contactId" name="contact_id" /></div>
+    <div><input type="submit" id="contact_save" value="Add Contact" name="contact_save" /></div>
+  </form>
+</div>
