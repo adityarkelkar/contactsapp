@@ -1,4 +1,4 @@
-<!-- Routed views go here -->
-<app-contact-list></app-contact-list>
-<router-outlet></router-outlet>
-
+<app-nav *ngIf="showNavBar"></app-nav>
+<section>
+  <router-outlet></router-outlet>
+</section>
